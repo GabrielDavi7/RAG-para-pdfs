@@ -9,7 +9,7 @@ def get_embedding_model():
     """
     Retorna o modelo de embeddings em português.
     """
-    model_name = "neuralmind/bert-base-portuguese-cased"  # 🇧🇷 usado na fase “Lúcio e Guisso”
+    model_name = "neuralmind/bert-base-portuguese-cased" 
     print(f"🔤 Carregando modelo de embeddings: {model_name}")
 
     model_kwargs = {'device': 'cpu'}
