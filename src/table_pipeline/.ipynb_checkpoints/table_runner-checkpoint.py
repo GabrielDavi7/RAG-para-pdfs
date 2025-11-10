@@ -34,11 +34,13 @@ def run_extraction_pipeline(pdf_path: str) -> Dict[str, List[Any]]:
         
         page_type = identify_page_type(page)
 
+        # (MUDANÇA 1: 'print' único, ANTES de pular)
         print(f"  [Table Pipeline] Página {page_num}/{len(doc)} -> Tipo: {page_type}")
         
         if page_type == "unknown":
             continue
         
+        # (O 'print' duplicado foi removido daqui)
 
         try:
             if page_type == "horario":
@@ -51,14 +53,17 @@ def run_extraction_pipeline(pdf_path: str) -> Dict[str, List[Any]]:
                 print(f"    -> Chamando processador 'ppc.py'...")
                 ppc_data = parse_ppc_page(pdf_path, page_num)
                 
+                # Vamos verificar o que o 'ppc.py' retornou
                 if ppc_data and ppc_data.get("parsed_data_list"):
                     # SUCESSO!
                     num_tabelas = len(ppc_data['parsed_data_list'])
                     print(f"    -> SUCESSO: 'ppc.py' retornou {num_tabelas} tabela(s). Adicionando aos resultados.")
                     results["ppc_data"].append(ppc_data)
                 else:
+                    # FALHA! (O processador rodou mas não achou tabelas)
                     print(f"    -> ALERTA: 'ppc.py' foi chamado, mas não retornou nenhuma tabela ('parsed_data_list' está vazia).")
                     
+                    # Vamos imprimir o sumário do ppc.py para saber o porquê
                     if ppc_data and "summary" in ppc_data:
                          print(f"    -> Sumário do 'ppc.py': {ppc_data['summary']}")
             # --- FIM DA MUDANÇA 2 ---

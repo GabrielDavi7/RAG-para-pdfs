@@ -35,7 +35,7 @@ def processar_documento(pdf_path: str, jsonl_output_path: str):
         except Exception as e:
             print(f"Aviso: Não foi possível contar as páginas com fitz: {e}")
 
-        # 1. O CORAÇÃO DA EXTRAÇÃO (ETAPA 1)
+        #O CORAÇÃO DA EXTRAÇÃO (ETAPA 1)
         print("Iniciando particionamento com 'unstructured' (estratégia hi_res)...")
         elementos = partition_pdf(
             pdf_path,
@@ -45,7 +45,7 @@ def processar_documento(pdf_path: str, jsonl_output_path: str):
         )
         print("Particionamento concluído.")
 
-        # 2. INICIALIZA O ESTADO (ETAPA 3)
+        #INICIALIZA O ESTADO (ETAPA 3)
         metadados_doc = {
             "total_paginas": total_paginas_doc,
             "instituicao": None, "campus": None, "curso": None,
@@ -55,7 +55,7 @@ def processar_documento(pdf_path: str, jsonl_output_path: str):
             "capitulo": None, "secao": None, "subsecao": None, "artigo": None
         }
         
-        # 3. LOOP DE ESTRUTURAÇÃO E ESCRITA
+        #LOOP DE ESTRUTURAÇÃO E ESCRITA
         with open(jsonl_output_path, 'w', encoding='utf-8') as outfile:
             
             bloco_counter = 0

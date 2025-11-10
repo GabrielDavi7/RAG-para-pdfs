@@ -9,7 +9,7 @@ def identify_page_type(page: fitz.Page) -> PageType:
     
     text = page.get_text("text").lower() # Converte tudo para minúsculo
 
-    # --- Regras de Identificação---
+    # --- Regras de Identificação (Baseadas nos seus arquivos) ---
 
     # 1. Regra para PPC (do ppc_parser.py)
     # Palavras-chave fortes: "projeto pedagógico", "matriz curricular", "ementa:", "bibliografia básica:"

@@ -4,7 +4,7 @@ from typing import Dict, Any, Optional, List
 # Importa a "caixa de ferramentas" da nossa arquitetura
 from ..extractor import get_raw_tables_from_page
 
-# --- Funções "Privadas" ---
+# --- Funções "Privadas" (Sua lógica de 'enhance_table' refatorada) ---
 
 def _extract_legend(raw_df: pd.DataFrame, num_legend_rows: int = 1) -> (pd.DataFrame, str):
     """
@@ -43,7 +43,7 @@ def _clean_calendar_data(table_df: pd.DataFrame) -> (pd.DataFrame, str, Optional
     if header_row_index == -1:
         return pd.DataFrame(), table_title, "Não foi possível identificar o cabeçalho (dias da semana)."
 
-    # --- Correção para colunas duplicadas---
+    # --- Correção para colunas duplicadas (sua lógica) ---
     header_list = table_df.iloc[header_row_index].astype(str).tolist()
     counts = {}
     unique_header = []
@@ -116,7 +116,7 @@ def _process_calendar_df(raw_df: pd.DataFrame) -> Dict[str, Any]:
         "summary": summary
     }
 
-# --- Função "Pública" ---
+# --- Função "Pública" (Ponto de Entrada para este módulo) ---
 
 def process_calendar_page(pdf_path: str, page_num: int) -> Optional[Dict[str, Any]]:
     """

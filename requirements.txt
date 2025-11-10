@@ -1,7 +1,6 @@
 # ----------------------------------------
 # 1. CORE PYTHON, ML E DADOS
 # ----------------------------------------
-# torch é o motor principal para transformers, bitsandbytes e embeddings
 torch
 numpy
 pandas
@@ -18,10 +17,7 @@ ipywidgets
 # ----------------------------------------
 # 3. EXTRAÇÃO DE PDF E TEXTO
 # ----------------------------------------
-# Pacote principal de extração do seu pipeline
 unstructured[pdf]
-
-# Outras bibliotecas de PDF e texto que você listou
 pdfminer.six
 pdfplumber
 PyMuPDF
@@ -29,8 +25,7 @@ pypdf
 unidecode
 thefuzz[fuzz]
 
-# (Opcional - Tabelas) Estava comentado na sua lista.
-# Deixei comentado aqui também.
+# (Opcional - Tabelas) 
 # camelot-py[cv]
 
 # ----------------------------------------
@@ -45,19 +40,14 @@ langchain-openai
 # ----------------------------------------
 # 5. STACK HUGGING FACE (LLMs)
 # ----------------------------------------
-# Para carregar modelos (Phi-3, Gemma)
 transformers
-# Para carregar modelos grandes em VRAM/CPU
 accelerate
-# Para quantização (rodar em 8-bit)
 bitsandbytes
 
 # ----------------------------------------
 # 6. EMBEDDINGS E VECTOR STORE
 # ----------------------------------------
-# Para criar os embeddings (ex: all-MiniLM)
 sentence-transformers
-# Banco de dados vetorial
 faiss-cpu
 
 # ----------------------------------------

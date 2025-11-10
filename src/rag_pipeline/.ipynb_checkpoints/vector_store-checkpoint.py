@@ -1,6 +1,3 @@
-# src/rag_pipeline/vector_store.py
-# (Revertido para retornar o 'vector_store' base)
-
 import os
 from typing import List
 from langchain_core.documents import Document
@@ -12,7 +9,7 @@ def get_embedding_model():
     """
     Retorna o modelo de embeddings em português.
     """
-    model_name = "neuralmind/bert-base-portuguese-cased"  # 🇧🇷 usado na fase “Lúcio e Guisso”
+    model_name = "neuralmind/bert-base-portuguese-cased" 
     print(f"🔤 Carregando modelo de embeddings: {model_name}")
 
     model_kwargs = {'device': 'cpu'}
@@ -53,7 +50,7 @@ def _load_faiss_index(
     print(f"    -> Índice FAISS carregado com sucesso.")
     return index
 
-# --- FUNÇÃO 4: Ponto de Entrada (CORRIGIDA) ---
+# --- FUNÇÃO 4: Ponto de Entrada ---
 def get_vector_store(
     documents: List[Document], 
     embedding_model: HuggingFaceEmbeddings, 
@@ -70,6 +67,5 @@ def get_vector_store(
     print(f"--- [RAG VectorStore] Tarefa 2 Concluída. Vector Store está pronto. ---")
     
     # --- MUDANÇA ---
-    # Remove a lógica do retriever daqui e apenas retorna a loja.
     return vector_store
     # --- FIM DA MUDANÇA ---

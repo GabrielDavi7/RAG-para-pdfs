@@ -50,7 +50,7 @@ def _load_faiss_index(
     print(f"    -> Índice FAISS carregado com sucesso.")
     return index
 
-# --- FUNÇÃO 4: Ponto de Entrada (CORRIGIDA) ---
+# --- FUNÇÃO 4: Ponto de Entrada ---
 def get_vector_store(
     documents: List[Document], 
     embedding_model: HuggingFaceEmbeddings, 
