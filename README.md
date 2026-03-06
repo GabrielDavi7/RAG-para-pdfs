@@ -1,32 +1,37 @@
-# Projeto Modelo – Pré-processamento de PDFs
+# RAG para Documentos Acadêmicos (IFNMG) 📚
 
-Este repositório serve como **exemplo de estrutura** para os trabalhos em equipes.
+Este projeto implementa um sistema de **Retrieval-Augmented Generation (RAG)** focado em documentos institucionais do IFNMG (PPCs, Matrizes Curriculares e Diretrizes de TCC). O objetivo é permitir que alunos e servidores realizem consultas em linguagem natural sobre normas acadêmicas.
 
-Projeto Integrador 2025 do Curso de Ciência da Computação do IFNMG Campus Montes Claros
+## 🚀 O Projeto
 
-## Estrutura
+O sistema processa arquivos PDF, extrai o conteúdo textual e utiliza técnicas de busca semântica para encontrar as passagens mais relevantes antes de gerar uma resposta via LLM.
 
-- `src/`: funções Python reutilizáveis
-- `notebooks/`: exemplos em Jupyter Notebook
-- `data/input/`: documentos PDF de entrada
-- `data/output/`: resultados gerados em JSON
+### 🔬 Foco em Embeddings (Equipe 3)
+Como parte do desenvolvimento, realizamos uma análise comparativa de diferentes modelos de representação vetorial (embeddings) para identificar qual oferece a melhor precisão na recuperação de informações, testamos varios modelos:
+* **MiniLM** (All-MiniLM-L6-v2)
+* **SBERT** (Sentence-BERT)
+* **BERT base**
+* **GloVe** (Baseline estatístico)
 
-## Como rodar
-1. Abra o anaconda prompt.
-2. Navegue ate a pasta onde esta o projeto.
-3. Rode este comando no terminal:
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Python
+* **LLM:** gemma-2b
+* **Orquestração:** LangChain / LlamaIndex
+* **Vetorização:** Sentence-Transformers / PyTorch
+
+## 📋 Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado:
+* Python 3.8+
+* Gerenciador de pacotes `pip`
+
+## 🔧 Instalação e Uso
+
+1. Clone o repositório:
    ```bash
-   conda env create -f environment.yml
-   ```
-4. Ative o ambiente com o comando:
-   ```bash
-   conda activate ia_projeto
-   ```
-5. Abra o jupyter lab com o comando no terminal:
-    ```bash
-   jupyter lab
-   ```
+   git clone [https://github.com/GabrielDavi7/RAG-para-pdfs.git](https://github.com/GabrielDavi7/RAG-para-pdfs.git)
 
-## Realizar Testes
-1. Para extrair pdfs, Execute o Notebook **"extracao_pdf_EQP4"**.
-2. Para rodar o modelo rag, Execute o Notebook **"experimentoEquipe4"**.
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
